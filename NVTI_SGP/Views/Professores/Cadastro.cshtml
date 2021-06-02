@@ -1,0 +1,24 @@
+@{
+    ViewData["Title"] = "Cadastro de Professor";
+}
+<div>
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <div class="row mb-3">
+        <div class="col-12">
+            <a class="btn btn-outline-info" asp-area="" asp-controller="Professores" asp-action="Professores">Voltar</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form method="post" action="~/Professores/Salvar">
+                <input type="hidden" name="id" value="@ViewBag.Professor.ID" />
+                <label>Nome<br /><input name="nome" type="text" class="form-control" value="@ViewBag.Professor.Nome" />
+                </label>
+                <div class="my-3 pt-3 border-top">
+                    <button class="btn btn-outline-primary">Salvar</button>
+                    <a class="btn btn-outline-info" asp-area="" asp-controller="Professores" asp-action="Professores">Cancelar</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

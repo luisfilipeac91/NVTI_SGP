@@ -1,0 +1,29 @@
+@{
+    ViewData["Title"] = "Cadastro de Aluno";
+}
+<div>
+    <h1 class="display-4">@ViewData["Title"]</h1>
+    <div class="row mb-3">
+        <div class="col-12">
+            <a class="btn btn-outline-info" asp-area="" asp-controller="Alunos" asp-action="Alunos">Voltar</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form method="post" action="~/Alunos/Salvar">
+                @model NVTI_SGP.Controllers.AlunosController
+                @using (Html.BeginForm())
+                {
+                    @using (Html.BeginForm("FormTwo", "Form", FormMethod.Post))
+                    {
+                        @Html.TextBoxFor(m => ViewBag.Aluno.TextBoxStringData)
+                        @Html.CheckBoxFor(model => ViewBag.Aluno.CheckboxData)
+                        @Html.TextBoxFor(model => ViewBag.Aluno.TextBoxIntData)
+
+                        <input type="submit" value="Submit strongly type synchronous form" />
+                    }
+                }
+            </form>
+        </div>
+    </div>
+</div>

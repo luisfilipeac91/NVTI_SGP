@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Professores";
+}
+<div>
+    <div class="row mb-3">
+        <div class="col-8">
+            <h1 class="display-4">@ViewData["Title"]</h1>
+        </div>
+        <div class="col-4 text-right">
+            <a class="btn btn-outline-info" asp-area="" asp-controller="Professores" asp-action="Cadastro">Novo professor</a>
+        </div>
+    </div>
+    @if (ViewBag.Professores.Count > 0)
+    {
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th class="text-right" style="width:74px;">#</th>
+                    <th>Nome</th>
+                    <th style="width:74px;"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (Professor x in ViewBag.Professores)
+                    {
+                        <tr>
+                            <td class="text-right" style="width:74px;">@x.ID</td>
+                            <td>@x.Nome</td>
+                            <td class="p-2" style="width:74px;"><a href="~/Professores/Cadastro/@x.ID" class="btn btn-outline-info">Alterar</a></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-warning" role="alert">Nenhum professor encontrado</div>
+    }
+</div>
